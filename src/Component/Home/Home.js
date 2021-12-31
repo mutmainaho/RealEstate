@@ -32,7 +32,8 @@ function Home() {
        setUrl(audiosrc)
        setPlay(true)
       })()  
-      })
+
+      },[])
 
 
 
