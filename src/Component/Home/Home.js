@@ -1,4 +1,5 @@
-import React,{useEffect} from 'react';
+import React,{useEffect,useState} from 'react';
+import ReactAudioPlayer from 'react-audio-player';
 
 import './Home.css';
 import House1 from '../images/img-1.jpg';
@@ -22,13 +23,28 @@ import { convertToAudio } from '../Service';
 
 
 function Home() {
+    const [url, setUrl] = useState('');
+    const [play, setPlay] = useState('false')
     useEffect(()=>{
         (async() => {
-       await convertToAudio("testing")
+       const url = await convertToAudio("welcome to my real estate page")
+       const audiosrc= url ?? ''
+       setUrl(audiosrc)
+       setPlay(true)
       })()  
       })
-    return (    
+
+
+
+    return (  
+          
         <div>
+            <ReactAudioPlayer
+  src={url}
+  autoPlay={play}
+  
+/>
+
             
 <section className="services" id="services">
 
