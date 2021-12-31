@@ -1,4 +1,5 @@
-import React from 'react';
+import React,{useEffect} from 'react';
+
 import './Home.css';
 import House1 from '../images/img-1.jpg';
 import House2 from '../images/img-2.jpg';
@@ -13,6 +14,7 @@ import Agent1 from '../images/pic-1.png';
 import Agent2 from '../images/pic-2.png';
 import Agent3 from '../images/pic-3.png';
 import Agent4 from '../images/pic-4.png';
+import { convertToAudio } from '../Service';
 
 
 
@@ -20,7 +22,12 @@ import Agent4 from '../images/pic-4.png';
 
 
 function Home() {
-    return (
+    useEffect(()=>{
+        (async() => {
+       await convertToAudio("testing")
+      })()  
+      })
+    return (    
         <div>
             
 <section className="services" id="services">
@@ -54,16 +61,13 @@ function Home() {
 
 </section>
 
-
-
-
         <section className="featured" id="featured">
 
-<h1 class="heading"> <span>featured</span> properties </h1>
+      <h1 className="heading"> <span>featured</span> properties </h1>
 
-<div class="box-container">
+     <div className="box-container">
 
-    <div class="box">
+    <div className="box">
         <div className="image-container">
             <img src={House1} alt="image"/>
             <div className="info">
